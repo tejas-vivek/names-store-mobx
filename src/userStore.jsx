@@ -1,5 +1,13 @@
+import {makeObservable, observable} from "mobx";
+
 class UserStore {
   users = [];
+
+    constructor(){
+        makeObservable(this, {
+            users: observable
+        })
+    }
 
   addUser = (name) => {
     const newUser = {
@@ -10,4 +18,4 @@ class UserStore {
   };
 }
 
-export const userStore = new UserStore();
+export const UserStore = new UserStore();
